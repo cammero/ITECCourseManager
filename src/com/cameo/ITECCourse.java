@@ -10,12 +10,24 @@ public class ITECCourse {
     private String roomNumber;
 
     //Constructor
+    public ITECCourse(String courseName, int courseCode, int courseMaxStudents){
+        this.name = courseName;
+        this.code = courseCode;
+        this.students = new ArrayList<String>();
+        this.maxStudents = courseMaxStudents;
+    }
+    //overloading constructor
     public ITECCourse(String courseName, int courseCode, int courseMaxStudents, String courseRoomNumber){
         this.name = courseName;
         this.code = courseCode;
         this.students = new ArrayList<String>();
         this.maxStudents = courseMaxStudents;
         this.roomNumber = courseRoomNumber;
+    }
+
+    public int availableSpace() {
+        int numberOfAvailableSeats = maxStudents - students.size();
+        return numberOfAvailableSeats;
     }
 
     public void addStudent(String studentName) {
@@ -86,5 +98,10 @@ public class ITECCourse {
     }
     public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
+    }
+
+    @Override
+    public String toString(){
+        return this.name;
     }
 }

@@ -3,7 +3,10 @@ import java.util.ArrayList;
 
 public class ITECCourseManager {
         public static void main(String args[]) {
-            ITECCourse maintenanceCourse = new ITECCourse("Microcomputer Systems Maintenance", 1310, 20, "TBD");
+            //create arraylist to store every course
+            ArrayList<ITECCourse> courseList = new ArrayList<>();
+            ITECCourse maintenanceCourse = new ITECCourse("Microcomputer Systems Maintenance", 1310, 20);
+            courseList.add(maintenanceCourse);
 
             //Add some students.
             maintenanceCourse.addStudent("Anna");
@@ -14,8 +17,8 @@ public class ITECCourseManager {
 
             maintenanceCourse.writeCourseInfo();
 
-            ITECCourse datacomCourse = new ITECCourse("Data Communications", 1425, 30, "TBD");
-
+            ITECCourse datacomCourse = new ITECCourse("Data Communications", 1425, 30);
+            courseList.add(datacomCourse);
             //Add some students
             datacomCourse.addStudent("Dave");
             datacomCourse.addStudent("Ed");
@@ -23,7 +26,8 @@ public class ITECCourseManager {
 
             datacomCourse.writeCourseInfo();
 
-            ITECCourse javaProgramming = new ITECCourse("Java Programming", 2545, 24, "TBD");
+            ITECCourse javaProgramming = new ITECCourse("Java Programming", 2545, 24);
+            courseList.add(javaProgramming);
             //add some students
             javaProgramming.addStudent("Gus");
             javaProgramming.addStudent("Harry");
@@ -31,7 +35,8 @@ public class ITECCourseManager {
 
             javaProgramming.writeCourseInfo();
 
-            ITECCourse smallCourse = new ITECCourse("Small Course", 1111, 3, "TBD");
+            ITECCourse smallCourse = new ITECCourse("Small Course", 1111, 3);
+            courseList.add(smallCourse);
             //add some students
             smallCourse.addStudent("Jake");
             smallCourse.addStudent("Kirby");
@@ -46,10 +51,16 @@ public class ITECCourseManager {
             smallCourse.writeCourseInfo();
 
             ITECCourse infoTechConcepts = new ITECCourse("Info Tech Concepts", 1100, 30, "T3050");
+            courseList.add(infoTechConcepts);
             //add some students
             infoTechConcepts.addStudent("Max");
             infoTechConcepts.addStudent("Nancy");
             infoTechConcepts.addStudent("Orson");
+
+            //loop over all ITECCourse objects and print name and number of free spaces
+            for (ITECCourse course : courseList){
+                System.out.println(course + " has " + course.availableSpace() + " seats remaining.");
+            }
         }
 
         public static void writeCourseInfo(String name, int code, ArrayList<String>students, int maxStudents) {
